@@ -1,6 +1,6 @@
 # 華泰 Meta Ads MCP 部署準備
 
-目標帳戶：981676801551252。此目錄僅新增部署設定，不會建立、啟用廣告或調高預算。
+Meta App ID：28622598490723764；目標廣告帳戶：981676801551252。此目錄僅新增部署設定，不會建立、啟用廣告或調高預算。
 
 ## 本機啟動
 
@@ -14,7 +14,7 @@ MCP 路徑為 `http://127.0.0.1:8080/mcp`。主機埠只綁定 loopback；容器
 
 ## 尚需完成的授權與部署
 
-1. 建立自己的 Meta Developer App，確認對目標廣告帳戶具存取權，依功能申請 ads_read / ads_management 等必要權限。
+1. 在 Meta for Developers 確認 App ID 28622598490723764 由你管理，並確認對目標廣告帳戶具存取權，依功能申請 ads_read / ads_management 等必要權限。
 2. 先以唯讀帳戶查詢驗證；權杖僅存於密鑰管理系統或輸入受保護的設定表單，不可提交到 Git 或貼入聊天。
 3. HTTP 版本要求每次請求帶 Authorization: Bearer <Meta access token>，缺少時應回傳 401；單純設定伺服器 META_ACCESS_TOKEN 不會替 HTTP 請求完成授權。
 4. ChatGPT 遠端連接還需要公開 HTTPS 位址，以及與客戶端相容的授權入口。現有程式沒有完整的遠端 OAuth 發行與回呼流程；必須先實作並驗證 OAuth 閘道，不能把這份 compose 的內部端點當成已完成的 ChatGPT 連線。
