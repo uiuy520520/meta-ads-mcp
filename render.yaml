@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: huatai-meta-ads-mcp-preview
+    runtime: docker
+    plan: free
+    dockerfilePath: ./deploy/Dockerfile
+    dockerContext: .
+    autoDeployTrigger: off
+    envVars:
+      - key: PORT
+        value: "8080"
